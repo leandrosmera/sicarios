@@ -1,0 +1,6 @@
+{
+    "@regras" : "Respeitar os demais membros acima de tudo!",
+    "!comandos" : "@regras, !ajuda , !comandos",
+    "!ajuda" : "Envie suas mensagens na sala #ajuda",
+    "!ping" : "Pong!"
+}
