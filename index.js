@@ -3,8 +3,8 @@ const bot = new Discord.Client();
 
 const config = require('./config.json');
 const links = require('./links.json');
-
-bot.on("guildMemberAdd", member => {
+  
+  bot.on("guildMemberAdd", member => {
     member.guild.channels.get('').send(member.user.username + ' Entrou no server');
 })
 
