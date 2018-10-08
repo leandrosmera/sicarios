@@ -35,6 +35,13 @@ bot.on('message', async message => {
         message.channel.send(responseObject[message.content]);
         if(message.author.bot) return;
         if(message.content.indexOf(config.prefix) !== 0) return;
+
+        let role = message.guild.roles.find("name", "Admin");
+        if(message.content.startsWith("!delete")){
+            msgDel = 10;
+            let numberMessages = parseInit(msgDel);
+            message.channel.fetchMessages({limit: numberMessages}).then(messages => messages.channel.bulkDelete(messages));
+        }
         
         /*const msgs = message.content.slice(config.prefix.length).trim().split(/ +/g);
         const comando = msgs.shift().toLowerCase();
@@ -45,14 +52,6 @@ bot.on('message', async message => {
             ms.edit('Pong! Client ' + clientms + 'ms / Bot+Server' + Math.round(bot.ping) + 'ms');
         }*/
     }
-
-    let role = message.guild.roles.find("name", "Admin");
-    if(message.content.startsWith("!delete")){
-        msgDel = 10;
-        let numberMessages = parseInit(msgDel);
-        message.channel.fetchMessages({limit: numberMessages}).then(messages => messages.channel.bulkDelete(messages));
-    }
-
 });
 
 bot.login(config.token);
