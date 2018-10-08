@@ -45,6 +45,14 @@ bot.on('message', async message => {
             ms.edit('Pong! Client ' + clientms + 'ms / Bot+Server' + Math.round(bot.ping) + 'ms');
         }*/
     }
-})
+
+    let role = message.guild.roles.find("name", "Admin");
+    if(message.content.startsWith("!delete")){
+        msgDel = 10;
+        let numberMessages = parseInit(msgDel);
+        message.channel.fetchMessages({limit: numberMessages}).then(messages => messages.channel.bulkDelete(messages));
+    }
+
+});
 
 bot.login(config.token);
