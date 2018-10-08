@@ -3,8 +3,20 @@ const bot = new Discord.Client();
 
 const config = require('./config.json');
 const links = require('./links.json');
+
+//heroku
+const express = require('express');
+const path = require('path');
+const PORT = process.env.PORT || 5000;
+
+express()
+  .use(express.static(path.join(__dirname, 'public')))
+  .set('views', path.join(__dirname, 'views'))
+  .set('view engine', 'ejs')
+  .get('/', (req, res) => res.render('pages/index'))
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
   
-  bot.on("guildMemberAdd", member => {
+bot.on("guildMemberAdd", member => {
     member.guild.channels.get('').send(member.user.username + ' Entrou no server');
 })
 
