@@ -25,7 +25,12 @@ bot.on("guildMemberRemove", member => {
 })
 
 bot.on('ready', () => {
-    bot.user.setActivity('Mario Bros');
+    let counting = 0;
+    setInterval(function() {
+        bot.user.setActivity('Contando ' + counting);
+        console.log('Contando ' + counting);
+        counting++;
+    }, 60000);
     console.log('Logado com sucesso!');
 });
 
