@@ -27,7 +27,7 @@ bot.on("guildMemberRemove", member => {
 bot.on('ready', () => {
     let counting = 0;
     setInterval(function() {
-        bot.user.setActivity('Contando ' + counting);
+        bot.user.setActivity('Top Gear 3000');
         console.log('Contando ' + counting);
         counting++;
     }, 60000);
