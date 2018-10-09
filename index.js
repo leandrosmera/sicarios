@@ -61,7 +61,7 @@ bot.on('message', async message => {
     if(comando === "ping"){
         const ms = await  message.channel.send("Ping?");
         const clientms = ms.createdTimestamp - message.createdTimestamp;
-        ms.edit('**Pong! Client **' + clientms + 'ms / **Bot+Server** ' + Math.round(bot.ping) + 'ms');
+        ms.edit('`\`\`\`**Pong! Client **' + clientms + 'ms / **Bot+Server** ' + Math.round(bot.ping) + 'ms`\`\`\`');
     }
 
      //comando falar
